@@ -255,3 +255,7 @@ Do not treat Docker as the default first-run flow.
 ## Current limitation
 
 The documentation is now explicit about the intended flow, but the workflow still depends on the `obsigen` skill actually performing the scaffold step correctly. If the agent has not scaffolded the plugin into the workspace root yet, commands like `pnpm install`, `pnpm dev`, or `cp .env.example .env` will not work because the repo is still only a published control workspace.
+
+## Acknowledgments
+
+Obsigen's skill architecture is directly inspired by [godogen](https://github.com/htdt/godogen) by [Alex Ermolov](https://x.com/alex_erm). Thank you for the great work.
