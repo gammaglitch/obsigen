@@ -7,8 +7,9 @@ Goal: prove that `obsigen` can publish a reusable skill pack, generate a working
 - [ ] A user can run a publish command from this repo to prepare a fresh plugin workspace.
 - [ ] The published workspace contains the skills and instructions needed to run the pipeline from inside Claude Code.
 - [ ] The pipeline can take one simple plugin request and turn it into a working plugin scaffold based on `obsikit`.
-- [ ] The generated plugin can be built and loaded in the existing Obsidian test harness.
-- [ ] The pipeline can verify success using the existing bridge and e2e/runtime feedback, without manual inspection as the primary path.
+- [ ] The generated plugin can be built and loaded in a local host Obsidian development vault.
+- [ ] The pipeline can verify success using the existing `obsikit` CLI/bridge tooling, without manual inspection as the primary path.
+- [ ] The same plugin can later be exercised in the Dockerized e2e harness as a separate verification path.
 
 ## 1. Delivery and workspace bootstrap
 
@@ -58,12 +59,14 @@ Goal: prove that `obsigen` can publish a reusable skill pack, generate a working
 
 ## 6. Verification requirements
 
-- [ ] Use the existing `obsikit` runtime and bridge as the primary verification path.
+- [ ] Use a local host Obsidian instance as the primary verification path.
+- [ ] Use the existing `obsikit` CLI/bridge tooling against that same local instance where available.
 - [ ] Verify that the plugin loads in Obsidian without uncaught runtime errors.
 - [ ] Verify that the sidebar view can be opened.
 - [ ] Verify that the generated command is registered and callable.
-- [ ] Verify at least one observable plugin behavior through the bridge or test harness.
+- [ ] Verify at least one observable plugin behavior through the bridge or local runtime tooling.
 - [ ] Capture enough failure information to support automated fixes.
+- [ ] Keep Docker e2e as a separate isolated verification pass rather than the default dev loop.
 
 ## 7. MVP demo scenario
 
@@ -97,4 +100,6 @@ Goal: prove that `obsigen` can publish a reusable skill pack, generate a working
 - The local `obsikit/` clone is now treated as external development context rather than part of the main repo.
 - `skills/obsigen/` now exists with the first orchestrator skeleton and supporting files.
 - Canonical templates for `PLAN.md`, `STRUCTURE.md`, and `MEMORY.md` now exist under `skills/obsigen/templates/`.
+- `obsigen` now assumes the primary workflow is local host Obsidian plus `obsikit` CLI/bridge tooling against that same instance.
+- Docker remains a separate e2e verification path, not the primary runtime for the orchestrator loop.
 - The next blocking implementation step is proving one canonical publish -> scaffold -> implement -> verify run end to end.

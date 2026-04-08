@@ -79,6 +79,13 @@ Resume rule:
 
 Use the local `obsikit` tooling as the verification base.
 
+Default runtime assumption:
+
+- Obsidian is running locally on the host against a dev vault
+- the official Obsidian CLI talks to that host app
+- the bridge, if enabled, comes from that same local plugin instance
+- Docker is a separate e2e verification path, not the normal development target
+
 Start each verification pass by calling:
 
 - `obsidian_get_capabilities`
@@ -89,6 +96,12 @@ Then use the best available tools:
 - bridge-backed tools for plugin state, active view/file, and current vault/file operations
 
 Do not assume all tools are always available. Branch based on reported capabilities.
+
+Backend policy:
+
+- local host workflow: `auto` is expected when CLI and bridge point at the same instance
+- Docker verification workflow: prefer bridge-only tooling
+- do not assume one MCP session should mix host CLI with a Docker bridge
 
 ## Obsidian API Lookup
 

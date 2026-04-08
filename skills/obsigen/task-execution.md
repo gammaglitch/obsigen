@@ -6,8 +6,11 @@ Implement the planned MVP feature, then verify and fix until it works or a clear
 
 1. Read `PLAN.md`, `STRUCTURE.md`, and `MEMORY.md`.
 2. Call `obsidian_get_capabilities`.
-3. Use the reported capabilities to choose the verification path.
-4. Read `obsidian-quirks.md` before changing plugin lifecycle, views, or vault writes.
+3. Prefer a local host Obsidian verification session first.
+4. Use the reported capabilities to choose the verification path.
+5. If the bridge and CLI clearly point at different Obsidian instances, do not mix them in one verification pass.
+6. Use Docker only as a separate e2e verification path after the local host loop works.
+7. Read `obsidian-quirks.md` before changing plugin lifecycle, views, or vault writes.
 
 ## Implementation loop
 
@@ -46,6 +49,11 @@ Use bridge-backed tools where available for:
 - plugin state
 - active file/view
 - current vault/file helpers
+
+Default expectation:
+
+- local host session: CLI + optional bridge against the same running app
+- Docker session: bridge-first verification only
 
 ## MVP success conditions
 
