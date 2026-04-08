@@ -56,6 +56,26 @@ The run is successful when all of these are true:
 - sidebar or custom view opens
 - the requested vault interaction works once end-to-end
 
+## Visual verification
+
+After command/view verification passes, confirm the UI renders correctly:
+
+1. Take a screenshot: `obsidian_take_screenshot`
+2. Read the screenshot to check for blank views, error states, or broken layout
+3. Use DOM queries to verify specifics:
+   - `obsidian_query_dom` — check element presence, text content, structure
+   - `obsidian_get_css` — check computed styles (dimensions, visibility, overflow)
+
+Checklist:
+
+- view container is not empty
+- expected heading/text content is present
+- no visible error messages or stack traces
+- no layout overflow or zero-dimension elements
+- interactive elements (buttons, inputs) are present if expected
+
+If the screenshot shows a problem that DOM queries can't explain, record it in `MEMORY.md` with the screenshot path and move on — don't loop on visual issues that need human judgement.
+
 ## Failure handling
 
 If verification fails:
