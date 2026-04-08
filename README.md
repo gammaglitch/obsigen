@@ -2,6 +2,12 @@
 
 Autonomous Obsidian plugin development pipeline, powered by Claude Code skills.
 
+> [!NOTE]
+> Obsigen is experimental. The goal is to make it easier for people to build plugins that work with their data in Obsidian vaults, without needing deep plugin development experience.
+
+> [!CAUTION]
+> Obsigen uses LLMs to generate plugin code that runs inside your vault. LLM-generated code can contain bugs, unexpected behavior, or data-destructive operations. Always use a dedicated dev vault — never run generated plugins against your primary vault without reviewing the code first.
+
 `obsigen` is a meta-repo. It does not start by generating a full plugin project in place. Instead, it publishes a small Claude workspace that contains:
 
 - the `obsigen` skills
