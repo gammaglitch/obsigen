@@ -47,6 +47,14 @@ User request
     +- Scaffold from .obsigen/templates/obsikit/
     +- Write STRUCTURE.md and MEMORY.md
     |
+    +- Confirm local environment is ready
+    |   +- .env points at the dev vault
+    |   +- dependencies are installed
+    |   +- local Obsidian is running on that vault
+    |   +- plugin is enabled
+    |   +- CLI works
+    |   +- bridge works if enabled
+    |
     +- Read obsidian-quirks.md
     +- Read task-execution.md
     +- Implement the MVP slice
@@ -102,6 +110,10 @@ Backend policy:
 - local host workflow: `auto` is expected when CLI and bridge point at the same instance
 - Docker verification workflow: prefer bridge-only tooling
 - do not assume one MCP session should mix host CLI with a Docker bridge
+
+Practical note:
+
+- the first run may require a restart of Claude after scaffold and local bootstrap so the scaffolded workspace's tooling context is fully available
 
 ## Obsidian API Lookup
 

@@ -12,6 +12,36 @@ Implement the planned MVP feature, then verify and fix until it works or a clear
 6. Use Docker only as a separate e2e verification path after the local host loop works.
 7. Read `obsidian-quirks.md` before changing plugin lifecycle, views, or vault writes.
 
+## Environment-ready gate
+
+Before the build/reload/verify loop starts, confirm the local environment is ready.
+
+Required conditions:
+
+- `.env` exists
+- `OBSIDIAN_PATH` points at the intended local dev vault
+- dependencies are installed
+- a build command can run
+- Obsidian is open on that vault
+- the generated plugin is enabled
+- `obsidian version` and `obsidian vault info=name` work if CLI-backed tools are expected
+- the bridge responds if bridge-backed tools are expected
+
+What the agent can usually do:
+
+- write `.env` once the vault path is known
+- run `pnpm install`
+- run one-off build commands
+
+What may still require the user:
+
+- choosing or confirming the local vault path
+- first-time Obsidian UI setup
+- enabling community plugins if needed
+- enabling the generated plugin the first time
+
+If these conditions are not met, stop and record the missing prerequisite in `MEMORY.md` instead of pretending the implementation loop can proceed.
+
 ## Implementation loop
 
 Use this loop:
