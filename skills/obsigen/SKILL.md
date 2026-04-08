@@ -18,6 +18,7 @@ Read each sub-file from `${CLAUDE_SKILL_DIR}/` when you reach its pipeline stage
 | `scaffold.md` | Scaffold plugin from local `obsikit` template | After decomposition |
 | `task-execution.md` | Build, verify, and fix loop | Before first implementation step |
 | `obsidian-quirks.md` | Obsidian lifecycle, API, and release traps | Before changing scaffolded code |
+| *(obs-api skill)* | Obsidian class API lookup | When unsure about Obsidian API details |
 
 ## MVP scope
 
@@ -82,6 +83,21 @@ Then use the best available tools:
 - bridge-backed tools for plugin state, active view/file, and current vault/file operations
 
 Do not assume all tools are always available. Branch based on reported capabilities.
+
+## Obsidian API Lookup
+
+When you need to look up an Obsidian class API (methods, properties, events), use `Skill(skill="obs-api")` with your query. This runs in a separate context to avoid loading API docs into the main pipeline.
+
+Be specific about what you need:
+- **Targeted query** — ask for specific methods/events: `"Vault: methods for reading and modifying files"`
+- **Full API** — only request when you need to survey the entire class: `"full API for Workspace"`
+
+Examples:
+- Skill(skill="obs-api") "Plugin: how to register commands and views"
+- Skill(skill="obs-api") "full API for MetadataCache"
+- Skill(skill="obs-api") "which class handles file creation and deletion?"
+- Skill(skill="obs-api") "Editor: methods for getting and replacing selections"
+- Skill(skill="obs-api") "common patterns for settings tabs"
 
 ## Guardrails
 
