@@ -1,0 +1,6 @@
+upstream_repo: https://github.com/obsidianmd/obsidian-api
+upstream_version: 1.12.3
+source_repo: https://github.com/gammaglitch/obsidocs
+source_commit: ef79185
+source_tag: v1.12.3
+refreshed: 2026-04-08

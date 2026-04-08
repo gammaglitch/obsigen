@@ -58,23 +58,26 @@ The run is successful when all of these are true:
 
 ## Visual verification
 
-After command/view verification passes, confirm the UI renders correctly:
+After command/view verification passes, confirm the UI renders correctly using DOM and CSS inspection. Screenshots are supplementary artifacts for human review — do not rely on reading screenshots for automated checks.
 
-1. Take a screenshot: `obsidian_take_screenshot`
-2. Read the screenshot to check for blank views, error states, or broken layout
-3. Use DOM queries to verify specifics:
-   - `obsidian_query_dom` — check element presence, text content, structure
-   - `obsidian_get_css` — check computed styles (dimensions, visibility, overflow)
+Automated checks (use these):
+
+- `obsidian_query_dom` — verify element presence, text content, structure
+- `obsidian_get_css` — verify computed styles (dimensions, visibility, overflow)
 
 Checklist:
 
-- view container is not empty
-- expected heading/text content is present
-- no visible error messages or stack traces
-- no layout overflow or zero-dimension elements
+- view container is not empty (query for expected child elements)
+- expected heading/text content is present (query text content)
+- no visible error elements (query for `.notice` or error-class elements)
+- no zero-dimension elements (check computed width/height via CSS)
 - interactive elements (buttons, inputs) are present if expected
 
-If the screenshot shows a problem that DOM queries can't explain, record it in `MEMORY.md` with the screenshot path and move on — don't loop on visual issues that need human judgement.
+Screenshot (supplementary):
+
+- `obsidian_take_screenshot` — capture for human review or `MEMORY.md` reference
+- Do not attempt pixel-level analysis — that is not an available capability
+- If DOM/CSS checks pass but something still seems wrong, save the screenshot path in `MEMORY.md` and note it for human review
 
 ## Failure handling
 

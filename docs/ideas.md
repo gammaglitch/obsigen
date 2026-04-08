@@ -12,7 +12,7 @@ For now, the orchestrator handles visual verification directly via screenshot + 
 
 ## Obsidian CLI integration
 
-The official `obsidian-cli` (from obsidian-skills) encodes a plugin-dev loop: reload, inspect errors, verify via DOM, check console. Currently obsikit covers this via its Docker bridge + MCP server, but if the official CLI matures, it could replace or supplement the bridge for local (non-Docker) development.
+The official Obsidian CLI provides a plugin-dev loop: reload, inspect errors, verify via DOM, check console. The `obsidian-skills` repo documents and wraps it as a Claude skill. Currently obsikit covers this via its Docker bridge + MCP server, but if the official CLI matures, it could replace or supplement the bridge for local (non-Docker) development.
 
 ## Template versioning
 

@@ -25,6 +25,4 @@ $ARGUMENTS
 
 **Patterns reference:** `${CLAUDE_SKILL_DIR}/patterns.md` — common plugin patterns and Obsidian-specific TypeScript idioms. Read when the caller asks about how to use an API, not just what it is.
 
-Bootstrap if doc_api is empty: `bash ${CLAUDE_SKILL_DIR}/tools/ensure_doc_api.sh`
-
-The bootstrap script tries to match the plugin's `minAppVersion` from `manifest.json` to an obsidocs version tag. Falls back to latest if no match.
+Docs are vendored in `doc_api/`. Version info is in `${CLAUDE_SKILL_DIR}/VERSION`.
