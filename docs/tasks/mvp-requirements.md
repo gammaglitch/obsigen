@@ -32,9 +32,9 @@ Goal: prove that `obsigen` can publish a reusable skill pack, generate a working
 
 ## 3. Persistent pipeline documents
 
-- [ ] Define `PLAN.md` as the source of truth for scope, task status, and verification criteria.
-- [ ] Define `STRUCTURE.md` for plugin architecture and key files.
-- [ ] Define `MEMORY.md` for discoveries, failures, and workarounds.
+- [x] Define `PLAN.md` as the source of truth for scope, task status, and verification criteria.
+- [x] Define `STRUCTURE.md` for plugin architecture and key files.
+- [x] Define `MEMORY.md` for discoveries, failures, and workarounds.
 - [ ] The pipeline can resume from these files instead of depending on chat history alone.
 
 ## 4. Scaffold requirements
@@ -96,4 +96,5 @@ Goal: prove that `obsigen` can publish a reusable skill pack, generate a working
 - The publish flow now copies a tracked vendored template from `templates/obsikit/` into `.obsigen/templates/obsikit/`.
 - The local `obsikit/` clone is now treated as external development context rather than part of the main repo.
 - `skills/obsigen/` now exists with the first orchestrator skeleton and supporting files.
-- The next blocking implementation step is wiring the scaffold and execution instructions to concrete generated outputs and verification runs.
+- Canonical templates for `PLAN.md`, `STRUCTURE.md`, and `MEMORY.md` now exist under `skills/obsigen/templates/`.
+- The next blocking implementation step is proving one canonical publish -> scaffold -> implement -> verify run end to end.

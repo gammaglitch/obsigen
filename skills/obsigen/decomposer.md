@@ -6,6 +6,9 @@ Turn the user's plugin request into a minimal end-to-end MVP plan.
 
 Write `PLAN.md` that is small enough to execute reliably and precise enough to verify automatically.
 
+If `PLAN.md` does not exist yet, start from `${CLAUDE_SKILL_DIR}/templates/PLAN.md`.
+Replace every `<...>` placeholder before moving on.
+
 ## Default decomposition rule
 
 Reduce the request to the narrowest useful plugin slice:
@@ -16,27 +19,14 @@ Reduce the request to the narrowest useful plugin slice:
 
 If the user asked for more, keep the MVP slice in scope and record the rest as deferred work.
 
-## What to write in `PLAN.md`
+## Plugin identity
 
-Use this structure:
+Choose the plugin identity during decomposition so scaffold does not have to guess.
 
-```md
-# PLAN
-
-## Request
-
-## MVP slice
-
-## Deferred scope
-
-## Platform classification
-
-## Risks
-
-## Verification criteria
-
-## Task list
-```
+- Display name: short, Title Case, grounded in the request
+- Plugin id: lowercase kebab-case derived from the display name
+- Remove generic tokens like `obsidian` and `plugin` from the id
+- The id must be stable once written into `PLAN.md`
 
 ## Platform classification
 
@@ -76,3 +66,11 @@ If the request is too broad for the current MVP skill:
 - keep a single working slice in `MVP slice`
 - put the rest in `Deferred scope`
 - do not pretend the first run will ship the full vision
+
+## Task list rule
+
+Start from the canonical task list in the `PLAN.md` template.
+
+- Keep the scaffold/build/verify spine intact
+- Add only request-specific tasks that materially change implementation
+- Mark `Current stage` as `decompose` when first writing the file

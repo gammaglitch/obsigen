@@ -65,6 +65,12 @@ Keep important state in files so the run is resumable:
 - `STRUCTURE.md` — scaffold layout, naming, and architecture decisions
 - `MEMORY.md` — discoveries, failures, workarounds, verification notes
 
+If any of these are missing, create them from the canonical templates in:
+
+- `${CLAUDE_SKILL_DIR}/templates/PLAN.md`
+- `${CLAUDE_SKILL_DIR}/templates/STRUCTURE.md`
+- `${CLAUDE_SKILL_DIR}/templates/MEMORY.md`
+
 Resume rule:
 
 - if these files already exist, read them first and continue from the recorded state instead of replanning from scratch

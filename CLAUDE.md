@@ -9,5 +9,6 @@ When scaffolding a plugin:
 1. Start from `.obsigen/templates/obsikit/`.
 2. Copy the template into the working plugin files.
 3. Rename and adapt the boilerplate to the requested plugin.
-4. Track progress in `PLAN.md`, `STRUCTURE.md`, and `MEMORY.md`.
-5. Verify the plugin against the available Obsidian runtime and bridge tooling.
+4. If `PLAN.md`, `STRUCTURE.md`, or `MEMORY.md` are missing, create them from `.claude/skills/obsigen/templates/`.
+5. Track progress in `PLAN.md`, `STRUCTURE.md`, and `MEMORY.md`.
+6. Verify the plugin against the available Obsidian runtime and bridge tooling.

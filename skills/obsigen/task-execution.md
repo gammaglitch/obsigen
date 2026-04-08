@@ -93,7 +93,9 @@ Keep `PLAN.md` and `MEMORY.md` current.
 
 Minimum updates:
 
-- task status changed
+- task status changed in `PLAN.md`
+- `Current stage`, `Current focus`, or `Blockers` changed in `PLAN.md`
 - important error encountered
 - verification result
 - workaround or discovery that affects the next step
+- file/path decisions or runtime findings added to `MEMORY.md`
